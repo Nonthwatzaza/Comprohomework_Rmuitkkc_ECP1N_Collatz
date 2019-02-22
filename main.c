@@ -5,42 +5,42 @@
 // collatz Homework code
 // 98.99% code
 
-int st,nd,MM=0,Temp,Za;
+int st,nd,MM=0,Temp,Za; // ตัวแปร โกลบอล
 
-int collatz_loop (long int num)
+int collatz_loop (long int num) // ให้ za เป็น num
 {
-    int round=1;
-    while(num!=1)
+    int round=1; // ตัวแปร  โลคอล
+    while(num!=1) // ถ้า ไม่เท่ากับ 1
     {
-        if((fmod(num,2))==0)
+        if((fmod(num,2))==0) // ถ้าหาร 2 เอาเศษ แล้วไม่มีเศษ
         {
-            num=num/2;
+            num=num/2; // หาร 2
         }
         else
         {
-            num=(num*3)+1;
+            num=(num*3)+1; // 3n+1
         }
-        round++;
+        round++; // นับรอบ
     }
-    return round;
+    return round; // ส่งคืนค่ารอบไป main
 }
 int main()
 {
     printf("Input 1st starter and 2st ender :\n");
     scanf("%d %d", &st,&nd);
 
-    if((st<1000000)&&(nd<1000000)&&(st>=0)&&(nd>=0)&&(st<=nd))
+    if((st<1000000)&&(nd<1000000)&&(st>=0)&&(nd>=0)&&(st<=nd)) //ถ้า ค่าไม่เกินล้านและไม่เท่ากับ0 และตัวเริ่มน้อยกว่าตัวจบ
     {
-        for(Za=st;Za<=nd;Za++)
+        for(Za=st;Za<=nd;Za++) // ให้ Zaมีค่าเท่ากับ ;ตัวเริ่ม ;ถ้า za น้อยกว่าตัวจบ ; za++
             {
-                Temp = collatz_loop(Za);
+                Temp = collatz_loop(Za); // Temp มีค่าเท่ากับ = ผลลัพธ์ฟังชั้นที่นำค่า za ในสมการ หรือค่ารอบ
 
-                if (MM<Temp)
+                if (MM<Temp) // ถ้า ค่าสูงสุดน้อยกว่า Temp
                 {
-                    MM=Temp;
+                    MM=Temp; // ให้ค่าสูงสุดเท่ากับ Temp
                 }
             }
-    printf("%d %d %d",st,nd,MM);
+    printf("%d %d %d",st,nd,MM); // แสดงผล
     }
 
     return 0;
